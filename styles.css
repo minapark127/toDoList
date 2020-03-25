@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+* {
+  font-family: "Roboto Mono", monospace;
+  list-style: none;
+}
+body {
+  margin: 0;
+  padding: 50px 0;
+  background: linear-gradient(to left top, #866ab3, #6190e8, #a7badd);
+}
+.toDo {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  margin: 0 auto;
+  padding: 40px 0;
+  background-color: #faf9f9;
+  box-shadow: 0 18px 50px 0px rgba(66, 66, 66, 0.8);
+  overflow: scroll;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form label {
+  font-size: 40px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  border-bottom: double 7px #4b4b4b;
+}
+.form input {
+  font-size: 20px;
+  border: none;
+  padding: 10px 30px;
+  margin-bottom: 40px;
+  border-radius: 3rem;
+  box-shadow: 1px 9px 20px 0 rgba(32, 33, 36, 0.4);
+}
+.form input:focus {
+  outline: none;
+}
+.toDoList li {
+  font-size: 33px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #4b4b4b;
+}
+.toDoList button i {
+  font-weight: bold;
+  font-size: 23px;
+}
+.toDoList button {
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  color: #a43931;
+  margin-left: 25px;
+}
+
+/* Checkbox */
+.toDoList input {
+  position: absolute;
+  left: -9999px;
+}
+.toDoList label::before {
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border: 2px solid;
+  cursor: pointer;
+}
+.toDoList label::after {
+  content: "";
+  display: inline-block;
+  height: 5px;
+  width: 12px;
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  transform: rotate(-45deg);
+}
+.toDoList label {
+  position: relative;
+  padding-left: 20px;
+}
+.toDoList input:checked ~ label {
+  color: #aaa69d;
+  text-decoration: line-through;
+}
+.toDoList label::before,
+.toDoList label::after {
+  position: absolute;
+}
+/*Outer-box*/
+.toDoList label::before {
+  top: 15px;
+  left: -30px;
+}
+/*Checkmark*/
+.toDoList label::after {
+  left: -25px;
+  top: 22px;
+}
+/*Hide the checkmark by default*/
+.toDoList input[type="checkbox"] + label::after {
+  content: none;
+}
+/*Unhide the checkmark on the checked state*/
+.toDoList input[type="checkbox"]:checked + label::after {
+  content: "";
+}
